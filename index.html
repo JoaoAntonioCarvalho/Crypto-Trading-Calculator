@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Futures Trading Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles moved to style.css */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #007bff;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item.active {
+            border-bottom-color: #007bff;
+            font-weight: bold;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            /* Changed button color to blue for consistency */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results-area {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+
+        .results-area h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .results-area p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="close-button" onclick="window.electronAPI.closeApp()">×</div>
+        <div class="navigation">
+            <div class="nav-item active" data-section="calculatorSection">Calculator</div>
+            <div class="nav-item" data-section="fundCalculatorSection">Fund Calculator</div>
+        </div>
+
+        <div id="calculatorSection" class="section active">
+            <h1>Futures Profit/Loss Calculator</h1>
+            <div class="input-group">
+                <label for="investment">Investment Amount (USD):</label>
+                <input type="number" id="investment" placeholder="e.g., 20">
+            </div>
+            <div class="input-group">
+                <label for="leverage">Leverage (e.g., 5):</label>
+                <input type="number" id="leverage" placeholder="e.g., 5">
+            </div>
+            <div class="input-group">
+                <label for="orderTypeCalc">Order Type:</label>
+                <select id="orderTypeCalc">
+                    <option value="long">Long</option>
+                    <option value="short">Short</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="entryPriceCalc">Entry Price:</label>
+                <input type="number" id="entryPriceCalc" placeholder="e.g., 30000">
+            </div>
+            <div class="input-group">
+                <label for="stopLossCalc">Stop Loss Price:</label>
+                <input type="number" id="stopLossCalc" placeholder="e.g., 29900">
+            </div>
+            <div class="input-group">
+                <label for="takeProfitCalc">Take Profit Price:</label>
+                <input type="number" id="takeProfitCalc" placeholder="e.g., 30150">
+            </div>
+            <button id="calculateBtn">Calculate Profit/Loss</button>
+            <div id="results" class="results-area">
+                <h3>Calculator Results:</h3>
+                <p id="stopLossResult"></p>
+                <p id="takeProfitResult"></p>
+                <p id="commissionTakerTaker"></p>
+                <p id="commissionMakerMaker"></p>
+                <p id="commissionTakerMaker"></p>
+            </div>
+        </div>
+
+        <div id="fundCalculatorSection" class="section">
+            <h1>Fund Allocation Calculator</h1>
+            <div class="input-group">
+                <label for="riskAccepted">Accepted Risk (% of Fund):</label>
+                <input type="number" id="riskAccepted" placeholder="e.g., 1">
+            </div>
+            <div class="input-group">
+                <label for="stopLossPercentage">Stop Loss (%):</label>
+                <input type="number" id="stopLossPercentage" placeholder="e.g., 1.5">
+            </div>
+            <div class="input-group">
+                <label for="leverageFundCalc">Leverage:</label>
+                <input type="number" id="leverageFundCalc" placeholder="e.g., 10">
+            </div>
+            <button id="calculateFundBtn">Calculate Fund Percentage</button>
+            <div id="fundResults" class="results-area">
+                <h3>Required Fund Allocation:</h3>
+                <p id="fundPercentageResult"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
