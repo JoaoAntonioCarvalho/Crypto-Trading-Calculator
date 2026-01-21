@@ -2,8 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const https = require('https');
 
-const TOKEN = '7978856710:AAHIYIAo-RPWVn3RLF-pGIyXmMV1euoySDU';
-const CHAT_ID = '1302714261';
+const TOKEN = '';
+const CHAT_ID = '';
 
 function sendTelegramMessage(message) {
     const url = `/bot${TOKEN}/sendMessage`;
