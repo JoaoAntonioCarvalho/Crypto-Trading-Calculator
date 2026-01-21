@@ -23,7 +23,7 @@ Instead of guessing your margin or liquidation point, you can now input your par
 
 ## 📸 Interface
 
-<img width="511" height="758" alt="image" src="https://github.com/user-attachments/assets/4ef93e1b-3d4d-4701-9618-2b9a956c10b9" 
+<img width="511" height="758" alt="image" src="https://github.com/user-attachments/assets/4ef93e1b-3d4d-4701-9618-2b9a956c10b9"  />
 <img width="510" height="758" alt="image" src="https://github.com/user-attachments/assets/9d118890-eab7-4068-9168-07490dc4b51e" />
 
 
